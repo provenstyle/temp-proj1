@@ -62,10 +62,13 @@ jobs:
         echo "NUGET_VERSION:    $NUGET_VERSION"
         echo "ASSEMBLY_VERSION: $ASSEMBLY_VERSION"
         echo "PACKAGES:         $PACKAGES"
-        #for PACKAGE in "${PACKAGES[@]}"
-        #  do
-        #    echo "$PACKAGE"
-        #  done
+
+        IFS=', ' read -ra $PACKAGES <<< "$PACKAGES"
+
+        for PACKAGE in "${PACKAGES[@]}"
+          do
+            echo "$PACKAGE"
+          done
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
