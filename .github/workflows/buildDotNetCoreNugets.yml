@@ -3,6 +3,7 @@ name: Build .NET Core Nugets
 on: [push, pull_request]
 
 env:
+  BRANCH:             "${{ github.ref }}""
   PRERELEASE:         ${{ github.ref != 'refs/heads/master' }}
   RELEASE:            ${{ github.ref == 'refs/heads/master' }}
   RELEASE_REPOSITORY: ""
@@ -15,6 +16,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set Variables
+      run: |
+        if [ $BRANCH != "refs/heads/master" ]
+        then
+          echo "::set-env name=PRERELEASE::true"
+        else
+
+        fi
+
+    - name: Test my variable
+      run: |
+        if $PRERELEASE
+        then
+          echo "this is prerelease: $PRERELEASE"
+        else
+
+        fi
+
     - name: Checkout
       uses: actions/checkout@v2
 
