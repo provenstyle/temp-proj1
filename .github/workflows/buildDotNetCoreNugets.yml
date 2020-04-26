@@ -10,6 +10,16 @@ env:
   RELEASE_KEY:        ""
   PRERELEASE_Key:     ""
 
+function array_split {
+  local -r separator="$1"
+  local -r str="$2"
+  local -a ary=()
+
+  IFS="$separator" read -a ary <<<"$str"
+
+  echo ${ary[*]}
+}
+
 jobs:
   build:
 
