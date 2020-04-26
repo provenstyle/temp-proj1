@@ -54,7 +54,7 @@ jobs:
         fi
 
           echo "::set-env name=ASSEMBLY_VERSION ::${{ steps.gitversion.outputs.assemblySemVer }}"
-          echo "::set-env name=PACKAGES         ::$Packages"
+          echo "::set-env name=PACKAGES         ::$PACKAGES"
 
 
     - name: List Variables
