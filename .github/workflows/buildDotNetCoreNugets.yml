@@ -3,7 +3,7 @@ name: Build .NET Core Nugets
 on: [push, pull_request]
 
 env:
-  BRANCH:             "${{ github.ref }}""
+  BRANCH:             "${{ github.ref }}"
   PRERELEASE:         ${{ github.ref != 'refs/heads/master' }}
   RELEASE:            ${{ github.ref == 'refs/heads/master' }}
   RELEASE_REPOSITORY: ""
