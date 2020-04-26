@@ -30,8 +30,6 @@ jobs:
         if $PRERELEASE
         then
           echo "this is prerelease: $PRERELEASE"
-        else
-
         fi
 
     - name: Checkout
