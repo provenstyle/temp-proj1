@@ -33,27 +33,38 @@ jobs:
 
     - name: Set Variables
       run: |
+        declare -a PACKAGES=(
+          "Miruken.AspNetCore"
+          "Miruken.AspNetCore.SignalR.Api"
+          "Miruken.AspNetCore.Swagger"
+        )
+
         if [ $BRANCH != "refs/heads/master" ]
         then
-          echo "::set-env name=PRERELEASE   ::true"
-          echo "::set-env name=CONFIGURATION::Debug"
-          echo "::set-env name=NUGET_REPO   ::http://localhost:8081/repository/Nuget-Prerelease/"
-          echo "::set-env name=API_KEY      ::a"
-          echo "::set-env name=NUGET_VERSION::${{ steps.gitversion.outputs.informationalVersion }}"
+          echo "::set-env name=PRERELEASE       ::true"
+          echo "::set-env name=CONFIGURATION    ::Debug"
+          echo "::set-env name=NUGET_REPO       ::http://localhost:8081/repository/Nuget-Prerelease/"
+          echo "::set-env name=API_KEY          ::a"
+          echo "::set-env name=NUGET_VERSION    ::${{ steps.gitversion.outputs.informationalVersion }}"
         else
-          echo "::set-env name=CONFIGURATION::Release"
-          echo "::set-env name=NUGET_REPO   ::http://localhost:8081/repository/Nuget-Release/"
-          echo "::set-env name=API_KEY      ::b"
-          echo "::set-env name=NUGET_VERSION::${{ steps.gitversion.outputs.semVer }}"
+          echo "::set-env name=CONFIGURATION    ::Release"
+          echo "::set-env name=NUGET_REPO       ::http://localhost:8081/repository/Nuget-Release/"
+          echo "::set-env name=API_KEY          ::b"
+          echo "::set-env name=NUGET_VERSION    ::${{ steps.gitversion.outputs.semVer }}"
         fi
+
+          echo "::set-env name=ASSEMBLY_VERSION ::"${{ steps.gitversion.outputs.assemblySemVer }}"
+          echo "::set-env name=PACKAGES         ::"${{ $PACKAGES }}"
+
 
     - name: List Variables
       run: |
-        echo "PRERELEASE:    $PRERELEASE"
-        echo "CONFIGURATION: $CONFIGURATION"
-        echo "NUGET_REPO:    $NUGET_REPO"
-        echo "API_KEY:       $API_KEY"
-        echo "NUGET_VERSION: $NUGET_VERSION"
+        echo "PRERELEASE:       $PRERELEASE"
+        echo "CONFIGURATION:    $CONFIGURATION"
+        echo "NUGET_REPO:       $NUGET_REPO"
+        echo "API_KEY:          $API_KEY"
+        echo "NUGET_VERSION:    $NUGET_VERSION"
+        echo "ASSEMBLY_VERSION: $ASSEMBLY_VERSION"
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
@@ -62,8 +73,7 @@ jobs:
 
     - name: Build
       run: | 
-        VERSION="${{ steps.gitversion.outputs.assemblySemVer }}"
-        dotnet build --configuration $CONFIGURATION -p:Version=$VERSION -p:DebugType=portable
+        dotnet build --configuration $CONFIGURATION -p:Version=$ASSEMBLY_VERSION -p:DebugType=portable
 
     - name: Test
       run: dotnet test --no-build --no-restore --verbosity normal
