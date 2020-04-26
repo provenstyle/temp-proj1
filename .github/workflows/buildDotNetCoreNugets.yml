@@ -65,7 +65,7 @@ jobs:
 
         IFS=', ' read -ra $packages <<< "$PACKAGES"
 
-        for PACKAGE in "${PACKAGES[@]}"
+        for PACKAGE in "${packages[@]}"
           do
             echo "$PACKAGE"
           done
