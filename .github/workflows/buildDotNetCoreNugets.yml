@@ -22,7 +22,7 @@ jobs:
         then
           echo "::set-env name=PRERELEASE::true"
         else
-
+          echo "::set-env name=foo::bar"
         fi
 
     - name: Test my variable
