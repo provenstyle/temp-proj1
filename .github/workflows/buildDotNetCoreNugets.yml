@@ -63,11 +63,10 @@ jobs:
         echo "ASSEMBLY_VERSION: $ASSEMBLY_VERSION"
         echo "PACKAGES:         $PACKAGES"
 
-        IFS=', ' read -ra PACKAGES <<< "$PACKAGES"
-
+        IFS=", " read -ra PACKAGES <<< $PACKAGES
         for PACKAGE in "${PACKAGES[@]}"
           do
-            echo "$PACKAGE"
+            echo "  $PACKAGE"
           done
 
     - name: Setup .NET Core
