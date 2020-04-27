@@ -63,9 +63,9 @@ jobs:
         echo "ASSEMBLY_VERSION: $ASSEMBLY_VERSION"
         echo "PACKAGES:         $PACKAGES"
 
-        IFS=', ' read -ra packages <<< "$PACKAGES"
+        IFS=', ' read -ra PACKAGES <<< "$PACKAGES"
 
-        for PACKAGE in "${packages[@]}"
+        for PACKAGE in "${PACKAGES[@]}"
           do
             echo "$PACKAGE"
           done
