@@ -4,11 +4,6 @@ on: [push, pull_request]
 
 env:
   BRANCH:             "${{ github.ref }}"
-  PRERELEASE:         ${{ github.ref != 'refs/heads/master' }}
-  RELEASE:            ${{ github.ref == 'refs/heads/master' }}
-  RELEASE_REPOSITORY: ""
-  RELEASE_KEY:        ""
-  PRERELEASE_Key:     ""
 
 jobs:
   build:
