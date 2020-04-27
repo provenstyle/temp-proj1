@@ -81,7 +81,9 @@ jobs:
 
     - name: Upload Nuget
       run: |
-        PWD
+        pwd
+        ls
+        
         IFS="," read -ra PACKAGES <<< $PACKAGES
         for PACKAGE in "${PACKAGES[@]}"
           do
