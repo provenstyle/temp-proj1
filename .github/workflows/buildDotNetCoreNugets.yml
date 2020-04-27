@@ -77,7 +77,7 @@ jobs:
       run: dotnet test --no-build --no-restore --verbosity normal
 
     - name: Pack Nugets
-      run: dotnet pack -p:PackageVersion= -p:SymbolPackageFormat=snupkg --include-symbols --no-build
+      run: dotnet pack -p:PackageVersion=$NUGET_VERSION -p:SymbolPackageFormat=snupkg --include-symbols --no-build
 
     - name: Upload Nuget
       run: |
