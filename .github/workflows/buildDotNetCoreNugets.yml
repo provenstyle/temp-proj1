@@ -80,29 +80,7 @@ jobs:
       run: dotnet pack -p:PackageVersion=$NUGET_VERSION -p:SymbolPackageFormat=snupkg --include-symbols --no-build
 
     - name: Upload Nuget
-      run: |
-        declare -a PACKAGES=(
-          "Miruken.AspNetCore"
-          "Miruken.AspNetCore.SignalR.Api"
-          "Miruken.AspNetCore.Swagger"
-        )
-        for package in "${PACKAGES[@]}"
-          do
-            if $RELEASE
-            then
-              VERSION="${{ steps.gitversion.outputs.semVer }}"
-              REPO="http://localhost:8081/repository/Nuget-Release/"
-              API_KEY=""
-            elif
-              VERSION="${{ steps.gitversion.outputs.informationalVersion }}"
-              REPO="http://localhost:8081/repository/Nuget-Prerelease/"
-              API_KEY=""
-            fi
-            PACKAGE_PATH="Source\Miruken.AspNetCore.SignalR.Api\bin\Miruken.AspNetCore.SignalR.Api.1.0.6-Alpha.3.nupkg"
-
-            dotnet pack -p:PackageVersion= -p:SymbolPackageFormat=snupkg --include-symbols --no-build
-            dotnet nuget push $PACKAGE_PATH --api-key $API_KEY --source $REPO
-          done
+      run: dotnet nuget push --api-key $API_KEY --source $REPO
 
     - name: Tag Release Build 
       if: env.RELEASE == 'true' 
