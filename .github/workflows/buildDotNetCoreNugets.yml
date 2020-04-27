@@ -40,13 +40,13 @@ jobs:
           echo "::set-env name=PRERELEASE       ::true"
           echo "::set-env name=CONFIGURATION    ::Debug"
           echo "::set-env name=NUGET_REPO       ::http://localhost:8081/repository/Nuget-Prerelease/"
-          echo "::set-env name=API_KEY          ::a"
+          echo "::set-env name=API_KEY          ::${{ secrets.NEXUS_API_KEY}}"
           echo "::set-env name=NUGET_VERSION    ::${{ steps.gitversion.outputs.informationalVersion }}"
         else
           echo "::set-env name=RELEASE          ::true"
           echo "::set-env name=CONFIGURATION    ::Release"
           echo "::set-env name=NUGET_REPO       ::http://localhost:8081/repository/Nuget-Release/"
-          echo "::set-env name=API_KEY          ::b"
+          echo "::set-env name=API_KEY          :: ${{ secrets.NUGET_API_KEY }}"
           echo "::set-env name=NUGET_VERSION    ::${{ steps.gitversion.outputs.semVer }}"
         fi
 
