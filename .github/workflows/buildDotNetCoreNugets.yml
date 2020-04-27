@@ -80,7 +80,7 @@ jobs:
       run: dotnet pack -p:PackageVersion=$NUGET_VERSION -p:SymbolPackageFormat=snupkg --include-symbols --no-build
 
     - name: Upload Nuget
-      run: dotnet nuget push --api-key $API_KEY --source $REPO
+      run: dotnet nuget push --api-key $API_KEY --source $NUGET_REPO
 
     - name: Tag Release Build 
       if: env.RELEASE == 'true' 
