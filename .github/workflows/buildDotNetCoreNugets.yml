@@ -28,7 +28,7 @@ jobs:
 
     - name: Set Variables
       run: |
-        PACKAGES="Miruken.Package1,Miruken.Package2"
+        PACKAGES="temp.proj1,temp.proj2"
 
         if [ $BRANCH != "refs/heads/master" ]
         then
