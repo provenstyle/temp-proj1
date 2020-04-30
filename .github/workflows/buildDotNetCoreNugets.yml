@@ -82,21 +82,8 @@ jobs:
     - name: Upload Nuget
       run: |
         pwd
-
-        echo "ls"
-        ls
-
-        echo "ls Source"
-        ls Source
-
-        echo "ls Source/temp.proj1"
-        ls Source/temp.proj1
-
-        echo "ls Source/temp.proj1/bin"
-        ls Source/temp.proj1/bin
-
-        echo "ls Source/temp.proj1/bin/Debug"
-        ls Source/temp.proj1/bin/Debug
+        echo "$NUGET_REPO"
+        echo "$API_KEY"
 
         IFS="," read -ra PACKAGES <<< $PACKAGES
         for PACKAGE in "${PACKAGES[@]}"
