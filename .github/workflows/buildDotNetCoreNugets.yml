@@ -98,13 +98,10 @@ jobs:
         echo "ls Source/temp-proj1/bin/Debug"
         ls Source/temp-proj1/bin/Debug
 
-        echo "ls Source/temp-proj1/bin/netcoreapp3.1"
-        ls Source/temp-proj1/bin/netcoreapp3.1
-
         IFS="," read -ra PACKAGES <<< $PACKAGES
         for PACKAGE in "${PACKAGES[@]}"
           do
-            PACKAGE_PATH="Source/${PACKAGE}/bin/${CONFIGURATION}/${PACKAGE}.${GitVersion_SemVer}.nupkg"
+            PACKAGE_PATH="./Source/${PACKAGE}/bin/${CONFIGURATION}/${PACKAGE}.${GitVersion_SemVer}.nupkg"
             echo "$PACKAGE_PATH"
             dotnet nuget push $PACKAGE_PATH --api-key $API_KEY --source $NUGET_REPO
           done
