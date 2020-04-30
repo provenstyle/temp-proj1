@@ -83,6 +83,10 @@ jobs:
       run: |
         pwd
         ls
+        ls Source
+        ls Source/temp.proj1
+        ls Source/temp.proj1/bin
+        ls Source/temp.proj1/bin/Debug
 
         IFS="," read -ra PACKAGES <<< $PACKAGES
         for PACKAGE in "${PACKAGES[@]}"
