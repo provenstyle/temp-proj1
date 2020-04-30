@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temp.proj1", "Source\temp-proj1\temp.proj1.csproj", "{81CE99FA-F670-413C-9D7E-3FE8FB38E48B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temp.proj2", "temp.proj2\temp.proj2.csproj", "{313FEE8C-8896-481E-ACDE-1465A84C59D7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{249B29C9-E522-4822-8B01-9C60DA851861}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\buildDotNetCoreNugets.yml = .github\workflows\buildDotNetCoreNugets.yml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temp.proj2", "Source\temp.proj2\temp.proj2.csproj", "{09AA1AD1-20AD-4A38-AE23-7D6C84C1A4B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +20,9 @@ Global
 		{81CE99FA-F670-413C-9D7E-3FE8FB38E48B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81CE99FA-F670-413C-9D7E-3FE8FB38E48B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81CE99FA-F670-413C-9D7E-3FE8FB38E48B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{313FEE8C-8896-481E-ACDE-1465A84C59D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{313FEE8C-8896-481E-ACDE-1465A84C59D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{313FEE8C-8896-481E-ACDE-1465A84C59D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{313FEE8C-8896-481E-ACDE-1465A84C59D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09AA1AD1-20AD-4A38-AE23-7D6C84C1A4B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09AA1AD1-20AD-4A38-AE23-7D6C84C1A4B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09AA1AD1-20AD-4A38-AE23-7D6C84C1A4B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09AA1AD1-20AD-4A38-AE23-7D6C84C1A4B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
