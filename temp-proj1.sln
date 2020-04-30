@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temp.proj1", "Source\temp-proj1\temp.proj1.csproj", "{81CE99FA-F670-413C-9D7E-3FE8FB38E48B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "temp.proj1", "Source\temp.proj1\temp.proj1.csproj", "{81CE99FA-F670-413C-9D7E-3FE8FB38E48B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{249B29C9-E522-4822-8B01-9C60DA851861}"
 	ProjectSection(SolutionItems) = preProject
