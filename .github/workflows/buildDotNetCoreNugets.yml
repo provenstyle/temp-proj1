@@ -87,7 +87,7 @@ jobs:
         IFS="," read -ra PACKAGES <<< $PACKAGES
         for PACKAGE in "${PACKAGES[@]}"
           do
-            PACKAGE_PATH="${PACKAGE}/Source/bin/${CONFIGURATION}/${PACKAGE}.${GitVersion_SemVer}.nupkg"
+            PACKAGE_PATH="${PACKAGE}/Source/${PACKAGE}/bin/${CONFIGURATION}/${PACKAGE}.${GitVersion_SemVer}.nupkg"
             echo "$PACKAGE_PATH"
             dotnet nuget push $PACKAGE_PATH --api-key $API_KEY --source $NUGET_REPO
           done
